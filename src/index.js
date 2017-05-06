@@ -370,41 +370,132 @@ import ReactDOM from 'react-dom';
 //   <Mailbox unreadMessages={messages} />,
 //   document.getElementById('root')
 // );
+// 显示隐藏warning组件
+// function WarningBanner(props) {
+// 	if (!props.warn) {
+// 		return null;
+// 	}
+// 	return (
+// 		<div className="warning">
+// 			Warning!
+// 		</div>
+// 	);
+// }
+// class Page extends React.Component {
+// 	constructor(props){
+// 		super(props);
+// 		this.state = {showWarning:true};
+// 		this.handleToggleClick = this.handleToggleClick.bind(this);
+// 	}
+// 	handleToggleClick(){
+// 		this.setState(prevState => ({
+// 			showWarning: !prevState.showWarning
+// 		}));
+// 	}
+// 	render(){
+// 		return (
+// 			<div>
+// 				<WarningBanner warn={this.state.showWarning} />
+// 				<button onClick={this.handleToggleClick}>
+// 					{this.state.showWarning?'Hide':'Show'}
+// 				</button>
+// 			</div>
+// 		);
+// 	}
+
+// } 
+// ReactDOM.render(
+// 	<Page />,
+// 	document.getElementById('root')
+// );
 // 
-function WarningBanner(props) {
-	if (!props.warn) {
-		return null;
-	}
-	return (
-		<div className="warning">
-			Warning!
-		</div>
-	);
-}
-class Page extends React.Component {
+// const number = [1,2,3,4,5];
+// const listItem = number.map(number=>
+// 	<li>{number}</li>
+// );
+// ReactDOM.render(
+// 	<ul>{listItem}</ul>,
+// 	document.getElementById('root')
+// );
+//key
+// function NumberList(props){
+// 	const numbers = props.numbers;
+// 	const numberList = numbers.map((number) => 
+// 		<li key={number.toString()}>
+// 			{number}
+// 		</li>
+// 	);
+// 	return (
+// 		<ul>{numberList}</ul>
+// 	);
+// }
+// const numbers = [1,2,3,4,5];
+// ReactDOM.render(
+// 	<NumberList numbers={numbers}/>,
+// 	document.getElementById('root')
+// );
+// blog
+// function Blog(props) {
+//   const sidebar = (
+//     <ul>
+//       {props.posts.map((post) =>
+//         <li key={post.id}>
+//           {post.title}
+//         </li>
+//       )}
+//     </ul>
+//   );
+//   const content = props.posts.map((post) =>
+//     <div key={post.id}>
+//       <h3>{post.title}</h3>
+//       <p>{post.content}</p>
+//     </div>
+//   );
+//   return (
+//     <div>
+//       {sidebar}
+//       <hr />
+//       {content}
+//     </div>
+//   );
+// }
+
+// const posts = [
+//   {id: 1, title: 'Hello World', content: 'Welcome to learning React!'},
+//   {id: 2, title: 'Installation', content: 'You can install React from npm.'}
+// ];
+// ReactDOM.render(
+//   <Blog posts={posts} />,
+//   document.getElementById('root')
+// );
+// 
+class NameForm extends React.Component {
 	constructor(props){
 		super(props);
-		this.state = {showWarning:true};
-		this.handleToggleClick = this.handleToggleClick.bind(this);
+		this.state = {value: ' '};
+		this.handleChange  = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);	
 	}
-	handleToggleClick(){
-		this.setState(prevState => ({
-			showWarning: !prevState.showWarning
-		}));
+	handleChange(event){
+		this.setState({value: event.target.value});
+	}
+	handleSubmit(event){
+		alert('A name was submit: '+ this.state.value);
+		event.preventDefault();
 	}
 	render(){
 		return (
-			<div>
-				<WarningBanner warn={this.state.showWarning} />
-				<button onClick={this.handleToggleClick}>
-					{this.state.showWarning?'Hide':'Show'}
-				</button>
-			</div>
+			<form onSubmit={this.handleSubmit}>
+				<label>
+					Name:
+					<input type="text" value={this.state.value} onChange={this.handleChange} />
+				</label>
+				<input type="submit" value="Submit" />
+			</form>
 		);
 	}
-
-} 
+}
 ReactDOM.render(
-	<Page />,
+	<NameForm />,
 	document.getElementById('root')
 );
