@@ -1,5 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+
+
+// 组件化的可独立使用的时钟,state保存状态
+function FormatDate(props){
+		return <h2>It is {props.date.toLocaleDateString()} {props.date.toLocaleTimeString()}.</h2>;
+}
 class Clock extends React.Component{
 	constructor(props){
 		super(props);
@@ -12,9 +17,9 @@ class Clock extends React.Component{
 			1000
 		);
 	}
-	componentWillUnmount(){
-		clearInterval(this.timerID);
-	}
+	// componentWillUnmount(){
+	// 	clearInterval(this.timerID);
+	// }
 	tick(){
 		this.setState({
 			date: new Date()
@@ -29,17 +34,6 @@ class Clock extends React.Component{
 		);
 	}
 }
-function App(){
-	return (
-		<div>
-			<Clock />
-			<Clock />
-			<Clock />
-		</div>
-	);
-}
-// 组件化的可独立使用的时钟,state保存状态
-function FormatDate(props){
-		return <h2>It is {props.date.toLocaleDateString()} {props.date.toLocaleTimeString()}.</h2>;
-}
+
+
 export default Clock;
