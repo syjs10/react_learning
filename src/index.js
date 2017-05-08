@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import Clock from './Clock';
-import Textarea from './Textarea';
+// import Textarea from './Textarea';
+import Calculator from './TemperatureInput';
 // function formateName(user){
 // 	return user.firstName + ' ' + user.lastName;
 // }
@@ -505,7 +506,14 @@ import Textarea from './Textarea';
 // 	<Clock />,
 // 	document.getElementById('clock')
 // );
+// ReactDOM.render(
+// 	<Textarea />,
+// 	document.getElementById('root')
+// );
+
+
+
 ReactDOM.render(
-	<Textarea />,
+	<Calculator />,
 	document.getElementById('root')
 );
