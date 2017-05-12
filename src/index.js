@@ -4,8 +4,8 @@ import './index.css';
 // import Clock from './Clock';
 // import Textarea from './Textarea';
 // import Calculator from './TemperatureInput';
-import {WelcomeDialog} from './Test';
-
+// import {WelcomeDialog} from './Test';
+// import SignUpDialog from './SignUpDialog';
 
 // ReactDOM.render(
 // 	<Clock />,
@@ -23,7 +23,11 @@ import {WelcomeDialog} from './Test';
 // 	document.getElementById('root')
 // );
 
-ReactDOM.render(
-	<WelcomeDialog />,
-	document.getElementById('root')
-);
+// ReactDOM.render(
+// 	<WelcomeDialog />,
+// 	document.getElementById('root')
+// );
+// ReactDOM.render(
+// 	<SignUpDialog />,
+// 	document.getElementById('root')
+// );
